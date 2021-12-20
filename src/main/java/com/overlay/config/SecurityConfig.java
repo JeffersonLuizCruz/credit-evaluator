@@ -12,13 +12,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Bean
-	private PasswordEncoder passwordEncoder() {
+	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		super.configure(auth);
+		auth.inMemoryAuthentication()
+			.passwordEncoder(passwordEncoder())
+			.withUser("admin")
+			.password(passwordEncoder().encode("admin"))
+			.roles("administrador");
 	}
 	
 	@Override
