@@ -1,2 +1,3 @@
 application.properties
+local.properties
 src/main/resources/application.properties
