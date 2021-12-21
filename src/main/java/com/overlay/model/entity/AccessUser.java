@@ -5,20 +5,20 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Entity
-public class User implements Serializable{
+public class AccessUser implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
