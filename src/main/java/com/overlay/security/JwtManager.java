@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.overlay.constant.SecurityConstants;
+import com.overlay.dto.user.UserLoginResponseDTO;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -13,7 +14,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JwtManager {
 	
-	public String createToken(String email, List<String> roles) {
+	public UserLoginResponseDTO createToken(String email, List<String> roles) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.DAY_OF_MONTH, SecurityConstants.JWT_EXP_DAYS);
 		
@@ -26,7 +27,7 @@ public class JwtManager {
 		
 		Long expireIn = calendar.getTimeInMillis();
 		
-		return jwt;
+		return new UserLoginResponseDTO(jwt, expireIn, SecurityConstants.JWT_PROVIDER);
 	}
 
 }
