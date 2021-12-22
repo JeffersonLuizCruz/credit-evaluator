@@ -1,1 +1,5 @@
 application.properties
+.classpath
+.project
+.settings/
+*/target/**
