@@ -11,11 +11,13 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.overlay.controller.exceptions.UserNameNotFoundExecption;
 import com.overlay.model.entity.AccessUser;
 import com.overlay.repository.UserRepository;
 
+@Service
 public class UserServiceImpl implements UserDetailsService{
 	
 	private static String NOT_FOUND_EXECPTION = "Não existe usuário com email: %s";

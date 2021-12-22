@@ -1,9 +1,11 @@
 package com.overlay.security;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 
 import com.overlay.util.HashUtil;
 
+@Component
 public class CustomPasswordEncoder implements PasswordEncoder{
 
 	@Override
