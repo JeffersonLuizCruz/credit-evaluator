@@ -1,4 +1,4 @@
-package com.overlay.dto.user;
+package com.overlay.model.dto;
 
 import java.io.Serializable;
 

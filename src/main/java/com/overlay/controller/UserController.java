@@ -15,7 +15,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.overlay.dto.user.UserLoginResponseDTO;
+import com.overlay.model.dto.UserLoginResponseDTO;
 import com.overlay.model.entity.AccessUser;
 import com.overlay.security.JwtManager;
 import com.overlay.service.UserService;
