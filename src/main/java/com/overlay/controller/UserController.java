@@ -18,12 +18,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.overlay.model.dto.UserLoginResponseDTO;
 import com.overlay.model.entity.AccessUser;
 import com.overlay.security.JwtManager;
-import com.overlay.service.UserService;
 
 public class UserController {
 	
 	@Autowired AuthenticationManager authManager;
-	@Autowired private UserService userService;
 	@Autowired private JwtManager jwtManager;
 	
 	@PostMapping("/login")

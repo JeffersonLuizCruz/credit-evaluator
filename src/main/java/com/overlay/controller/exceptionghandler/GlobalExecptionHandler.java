@@ -15,10 +15,18 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.overlay.exception.NotFoundException;
 import com.overlay.exception.UserNameNotFoundExecption;
 
 @ControllerAdvice
 public class GlobalExecptionHandler extends ResponseEntityExceptionHandler{
+	
+	@ExceptionHandler(NotFoundException.class)
+	public ResponseEntity<ApiError> handleNotFoundException(NotFoundException ex) {
+		ApiError error = new ApiError(HttpStatus.NOT_FOUND.value(), ex.getMessage(), LocalDateTime.now());
+		
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+	}
 	
 	@ExceptionHandler(UserNameNotFoundExecption.class)
 	public ResponseEntity<ApiError> handleNotFoundException(UserNameNotFoundExecption ex) {
