@@ -35,9 +35,14 @@ public class UserServiceImpl implements UserDetailsService{
 		List<GrantedAuthority> grantedAuthority = Arrays.asList(new SimpleGrantedAuthority("ROLE_" + user.getRole().name()));
 
 		
-		User userDetails = new User(user.getEmail(), user.getPassword(), grantedAuthority);
-		
-		return userDetails;
+		//User userDetails = new User(user.getEmail(), user.getPassword(), grantedAuthority);
+		return User
+				.builder()
+				.username(user.getEmail())
+				.password(user.getPassword())
+				.authorities(grantedAuthority)
+				.build();
+			
 	}
 
 }
