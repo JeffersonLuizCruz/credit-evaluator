@@ -25,5 +25,20 @@ public class AccessManager {
 		
 		return user.getId() == id;
 	}
+	
+	public boolean isConsumerOwner(Long id) {
+		String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Optional<AccessUser> result = userRepository.findByEmail(email);
+		
+		if(!result.isPresent()) throw new NotFoundException("There are not user with email = " + email);
+		
+		AccessUser user = result.get();
+		
+		//Request request = requestService.getById(id);
+		
+		//return user.getId() == request.getOwner().getId();
+		return false;
+		
+	}
 
 }
