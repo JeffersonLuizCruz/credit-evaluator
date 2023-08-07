@@ -1,10 +1,10 @@
-package com.overlay;
+package com.evaluator.mscreditevaluator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OverlayApplicationTests {
+class MscreditevaluatorApplicationTests {
 
 	@Test
 	void contextLoads() {
