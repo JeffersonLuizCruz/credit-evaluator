@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.evaluator.mscreditevaluator.model.DadosSolicitacaoEmissaoCartao;
+import com.evaluator.mscreditevaluator.model.ProtocoloEmissaoCartao;
 import com.evaluator.mscreditevaluator.model.RequestCustomer;
 import com.evaluator.mscreditevaluator.model.ResponseValuation;
 import com.evaluator.mscreditevaluator.model.ValuationData;
@@ -45,6 +47,17 @@ public class EvaluatorController {
 		}
 	}
 	
+	
+	@PostMapping("solicitacoes-cartao")
+	public ResponseEntity<ProtocoloEmissaoCartao> solicitarEmissaoCartao(@RequestBody DadosSolicitacaoEmissaoCartao dados) {
+		try {
+			ProtocoloEmissaoCartao protocolo = requestCustomerService.solicitarEmissaoCartao(dados);
+			return ResponseEntity.ok(protocolo);
+		} catch (Exception e) {
+			ResponseEntity.internalServerError().body(e.getMessage());
+		}
+		return null;
+	}
 	@GetMapping
 	String status() {
 		return "Hello World";
