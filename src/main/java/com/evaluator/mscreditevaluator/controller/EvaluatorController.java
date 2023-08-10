@@ -23,7 +23,7 @@ public class EvaluatorController {
 	
 	@Autowired private RequestCustomerService requestCustomerService;
 	
-	@GetMapping(value = "/customer", params = "cpf")
+	@GetMapping(value = "/cards", params = "cpf")
 	public ResponseEntity<RequestCustomer> requestApprovedCustomer(@RequestParam("cpf") String cpf){
 		RequestCustomer response;
 		try {
